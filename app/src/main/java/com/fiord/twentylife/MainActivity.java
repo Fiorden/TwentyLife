@@ -94,123 +94,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-/*        P1Up.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                handler.removeCallbacksAndMessages(null);
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        //Do something after 5000ms
-                        adapter.add(hf.getCurrentSituation());
-                    }
-                }, 5000);
-
-            }
-        });
-
-        P1Down.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                handler.removeCallbacksAndMessages(null);
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        //Do something after 5000ms
-                        adapter.add(hf.getCurrentSituation());
-                    }
-                }, 5000);
-            }
-        });
 
 
-        P2Up.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                P2.lifeUpdate( 1);
-                handler.removeCallbacksAndMessages(null);
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        //Do something after 5000ms
-                        adapter.add(hf.getCurrentSituation());
-                    }
-                }, 5000);
-            }
-        });
-
-        P2Down.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                P2.lifeUpdate( -1);
-                handler.removeCallbacksAndMessages(null);
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        //Do something after 5000ms
-                        adapter.add(hf.getCurrentSituation());
-                    }
-                }, 5000);
-            }
-        });
-
-        P1Up.setOnLongClickListener(new View.OnLongClickListener() {
-            public boolean onLongClick(View v) {
-                P1.lifeUpdate( +5);
-                handler.removeCallbacksAndMessages(null);
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        //Do something after 5000ms
-                        adapter.add(hf.getCurrentSituation());
-                    }
-                }, 5000);
-                return true;
-            }
-        });
-
-        P1Down.setOnLongClickListener(new View.OnLongClickListener() {
-            public boolean onLongClick(View v) {
-                P1.lifeUpdate( -5);
-                handler.removeCallbacksAndMessages(null);
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        //Do something after 5000ms
-                        adapter.add(hf.getCurrentSituation());
-                    }
-                }, 5000);
-                return true;
-            }
-        });
-
-        P2Up.setOnLongClickListener(new View.OnLongClickListener() {
-            public boolean onLongClick(View v) {
-                P2.lifeUpdate( 5);
-                handler.removeCallbacksAndMessages(null);
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        //Do something after 5000ms
-                        adapter.add(hf.getCurrentSituation());
-                    }
-                }, 5000);
-                return true;
-            }
-        });
-
-        P2Down.setOnLongClickListener(new View.OnLongClickListener() {
-            public boolean onLongClick(View v) {
-                P2.lifeUpdate( -5);
-                handler.removeCallbacksAndMessages(null);
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        //Do something after 5000ms
-                        adapter.add(hf.getCurrentSituation());
-                    }
-                }, 5000);
-                return true;
-            }
-        });*/
-
-        //Listener Swipe up down
+        //Listener Swipe up, down
         mSwipyRefreshLayout.setOnRefreshListener(new SwipyRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh(SwipyRefreshLayoutDirection direction) {
@@ -276,6 +162,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        //Poison bar listener
         seekBarPoison.setOnSeekBarChangeListener(
                 new SeekBar.OnSeekBarChangeListener() {
                     @Override

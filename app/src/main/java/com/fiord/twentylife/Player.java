@@ -39,7 +39,24 @@ public class Player {
                 HistoryAdapter.writeToHisCurrPoints();
             }
         });
+
+        buttonUp.setOnLongClickListener(new View.OnLongClickListener() {
+            public boolean onLongClick(View v) {
+                lifeUpdate( +5);
+                HistoryAdapter.writeToHisCurrPoints();
+                return true;
+            }
+        });
+
+        buttonDown.setOnLongClickListener(new View.OnLongClickListener() {
+            public boolean onLongClick(View v) {
+                lifeUpdate( +5);
+                HistoryAdapter.writeToHisCurrPoints();
+                return true;
+            }
+        });
     }
+
 
     public int getLife() {
 
