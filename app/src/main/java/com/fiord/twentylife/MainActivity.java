@@ -1,5 +1,7 @@
 package com.fiord.twentylife;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,8 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
-import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout;
-import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayoutDirection;
+import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout;
+import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayoutDirection;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,13 +24,18 @@ public class MainActivity extends AppCompatActivity {
 
     static int startingLife;
     int poison;
+    View view;
 
+    /*
     @BindView(R.id.P1life) TextView P1Life;
     @BindView(R.id.P1Up) Button P1Up;
     @BindView(R.id.P1Down) Button P1Down;
     @BindView(R.id.P2life) TextView P2Life;
     @BindView(R.id.P2Up) Button P2Up;
     @BindView(R.id.P2Down) Button P2Down;
+    */
+
+    FragmentManager manager = getFragmentManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
 
+
+
         startingLife = Integer.parseInt(preferences.getString("life","20"));
         poison = Integer.parseInt(preferences.getString("poison","0"));
 
@@ -54,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
         SlidingMenu menu = new SlidingMenu(this);
         menu.setMode(SlidingMenu.LEFT_RIGHT);
-        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
         menu.setFadeDegree(0.35f);
         menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
         menu.setBehindWidthRes(R.dimen.trzysta);
@@ -67,11 +76,19 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Add new players
-        final PlayerContainer pc = new PlayerContainer(this);
+        /*final PlayerContainer pc = new PlayerContainer(this);
          pc.newPlayer(P1Life,P1Up,P1Down,startingLife);
          pc.newPlayer(new Player(P2Life,P2Up,P2Down,startingLife));
-
+*/
         HistoryAdapter hAdapter = new HistoryAdapter(this);
+
+        if (savedInstanceState == null) {
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.add(R.id.players, new PlayerFragment(), "P1");
+            transaction.add(R.id.players, new PlayerFragment(), "P2");
+
+            transaction.commit();
+        }
 
 
         final Switch switch40 = (Switch) findViewById(R.id.switch40);
@@ -100,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
         mSwipyRefreshLayout.setOnRefreshListener(new SwipyRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh(SwipyRefreshLayoutDirection direction) {
-                pc.restartLife();
+                //pc.restartLife();
                 mSwipyRefreshLayout.setRefreshing(false);
                 if (direction == SwipyRefreshLayoutDirection.TOP) {
                     Toast.makeText(getApplicationContext(), "Won the game", Toast.LENGTH_SHORT).show();
@@ -125,14 +142,14 @@ public class MainActivity extends AppCompatActivity {
                 if(isChecked){
                     edit.putString("life","40");
                     edit.commit();
-                    pc.setLife(startingLife = 40);
+                    //pc.setLife(startingLife = 40);
                     HistoryAdapter.addText("Changed settings");
                     HistoryAdapter.writeToHisCurrPoints();
 
                 }else{
                     edit.putString("life","20");
                     edit.commit();
-                    pc.setLife(startingLife = 20);
+                    //pc.setLife(startingLife = 20);
                     HistoryAdapter.addText("Changed settings");
                     HistoryAdapter.writeToHisCurrPoints();
                     seekBarPoison.setProgress(0);

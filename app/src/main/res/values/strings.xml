@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TwentyLife</string>
+    <string name="normal_start">20</string>
 </resources>

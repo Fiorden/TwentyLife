@@ -7,7 +7,7 @@
     android:keepScreenOn="true"
     tools:context="com.fiord.twentylife.MainActivity">
 
-    <com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout
+    <com.fiord.twentylife.MySwipyRefreshLayout
         android:id="@+id/swipyrefreshlayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,84 +23,13 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:baselineAligned="false">
+                android:baselineAligned="false"
+                android:id="@+id/players">
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
 
-                    <Button
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/P1Up"
-                        android:layout_weight="1"
-                        android:background="@android:color/transparent" />
-
-                    <Button
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/P1Down"
-                        android:layout_weight="1"
-                        android:background="@android:color/transparent" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-
-                    <Button
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/P2Up"
-                        android:layout_weight="1"
-                        android:background="@android:color/transparent" />
-
-                    <Button
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/P2Down"
-                        android:layout_weight="1"
-                        android:background="@android:color/transparent" />
-                </LinearLayout>
             </LinearLayout>
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center">
 
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="20"
-                    android:id="@+id/P1life"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:textStyle="bold"
-                    android:textSize="180sp"
-                    android:singleLine="true"
-                    android:textIsSelectable="false"
-                    android:textColor="#c8c8c8" />
-
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="20"
-                    android:id="@+id/P2life"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:textStyle="bold"
-                    android:textSize="180sp"
-                    android:singleLine="true"
-                    android:textColor="#c8c8c8" />
-            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -128,7 +57,7 @@
         </FrameLayout>
 
 
-    </com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout>
+    </com.fiord.twentylife.MySwipyRefreshLayout>
 
     <SeekBar
         android:layout_width="fill_parent"
